@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">   <!-- 日本語のページであることを指定 -->
+<head>
+  <meta charset="UTF-8">   <!-- 文字コードの指定 -->
+  <title>メモアプリ</title>   <!-- ブラウザのタブに表示されるタイトル -->
+  <link rel="stylesheet" href="style.css">   <!-- CSSファイルの読み込み -->
+</head>
+<body>
+<div class="container">   <!-- 全体を囲むコンテナ -->
+  <h1>メモアプリ</h1>   <!-- ページのタイトル -->
+
+  <!-- メモの入力フォーム部分 -->
+  <div class="memo-form">
+    <h2>新規メモ作成</h2>
+    <input type="text" id="memoTitle" placeholder="タイトル">   <!-- タイトル入力欄 -->
+    <textarea id="memoContent" placeholder="メモの内容"></textarea>   <!-- 内容入力欄 -->
+    <button id="createMemo">保存</button>   <!-- 保存ボタン -->
+  </div>
+
+  <!-- メモの一覧表示部分 -->
+  <div class="memo-list">
+    <h2>メモ一覧</h2>
+    <div id="memos"></div>   <!-- JavaScriptでメモを表示する場所 -->
+  </div>
+</div>
+<script src="main.js"></script>   <!-- JavaScriptファイルの読み込み -->
+</body>
+</html>
