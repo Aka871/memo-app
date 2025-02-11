@@ -4,6 +4,7 @@ import com.example.memoapp.entity.Memo;
 import com.example.memoapp.exception.MemoNotFoundException;
 import com.example.memoapp.mapper.MemoMapper;
 import java.util.List;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -46,6 +47,7 @@ public class MemoController {
   // クライアントから送られてきたデータ（JSON形式）をMemo型の変数memoとして定義
   // @RequestBodyアノテーションを使ってMemoクラスで定義した形に変換
   @PostMapping("/memos")
+  @Transactional
   public void insertMemo(@RequestBody Memo memo) {
     // データベースにメモを保存
     memoMapper.insert(memo);

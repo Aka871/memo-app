@@ -30,3 +30,31 @@ function displayMemos(memos) {
         memosDiv.appendChild(memoElement);
     });
 }
+// 保存ボタンのクリックイベントを設定
+document.getElementById('createMemo').addEventListener('click', createMemo);
+
+// メモを作成する関数
+async function createMemo() {
+    const title = document.getElementById('memoTitle').value;
+    const content = document.getElementById('memoContent').value;
+
+    try {
+        const response = await fetch('/memos', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ title, content })
+        });
+
+        if (response.ok) {
+            // フォームをクリア
+            document.getElementById('memoTitle').value = '';
+            document.getElementById('memoContent').value = '';
+            // メモ一覧を更新
+            fetchMemos();
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
